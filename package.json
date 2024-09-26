@@ -11,12 +11,18 @@
   },
   "dependencies": {
     "@react-native-aria/interactions": "^0.2.13",
+    "@react-native-async-storage/async-storage": "^2.0.0",
     "@react-native/gradle-plugin": "0.75.1",
+    "@react-navigation/native": "^6.1.18",
     "native-base": "^3.4.28",
     "react": "18.3.1",
     "react-native": "0.75.3",
-    "react-native-safe-area-context": "3.3.2",
-    "react-native-svg": "12.1.1"
+    "react-native-gesture-handler": "^2.20.0",
+    "react-native-pager-view": "^6.4.1",
+    "react-native-safe-area-context": "^4.11.0",
+    "react-native-screens": "^3.34.0",
+    "react-native-svg": "12.1.1",
+    "react-native-tab-view": "^3.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
