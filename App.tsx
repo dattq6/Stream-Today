@@ -4,7 +4,9 @@
  *
  * @format
  */
-
+// import 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { NavigationContainer } from '@react-navigation/native';
 import {
   ColorMode,
   extendTheme,
@@ -12,13 +14,9 @@ import {
   StorageManager,
 } from 'native-base';
 import React from 'react';
-import {SafeAreaView} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import ScrollablePage from './src/screens/Setting';
-import {appTheme} from './src/theme';
-import FacebookStyleTabs from './src/components/Tab';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import {NavigationContainer} from '@react-navigation/native';
+import AppStack from './src/navigation';
+import { appTheme } from './src/theme';
+import { AppProvider } from './src/context';
 // Define the colorModeManager,
 // here we are using react-native-async-storage (https://react-native-async-storage.github.io/async-storage/)
 const colorModeManager: StorageManager = {
@@ -40,21 +38,18 @@ const colorModeManager: StorageManager = {
 };
 
 const customTheme = extendTheme(appTheme);
-const tabs = ['Home', 'Friends', 'Marketplace', 'Watch'];
+
 function App(): React.JSX.Element {
   return (
-    <GestureHandlerRootView style={{flex: 1}}>
-      <NativeBaseProvider
-        colorModeManager={colorModeManager}
-        theme={customTheme}>
-        <NavigationContainer>
-          <SafeAreaView>
-            <FacebookStyleTabs tabs={tabs} />
-            {/* <ScrollablePage /> */}
-          </SafeAreaView>
-        </NavigationContainer>
-      </NativeBaseProvider>
-    </GestureHandlerRootView>
+    <NativeBaseProvider
+      colorModeManager={colorModeManager}
+      theme={customTheme}>
+      <NavigationContainer>
+        <AppProvider>
+          <AppStack />
+        </AppProvider>
+      </NavigationContainer>
+    </NativeBaseProvider>
   );
 }
 

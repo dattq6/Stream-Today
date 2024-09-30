@@ -39,6 +39,6 @@ export const appTheme = {
     },
     config: {
         // Optionally, set initial color mode or other config options
-        initialColorMode: 'light',
+        initialColorMode: 'dark',
     },
 };
